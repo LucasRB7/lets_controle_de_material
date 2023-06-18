@@ -1,0 +1,249 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+}
+.titulo{
+  text-align: center;
+  font-size: 45px;
+}
+.menu_inicial{
+  align-items: center;
+}
+.menu_btn{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-content: center;
+  justify-content: center;
+  height: 15vh;
+  width: 450px;
+}
+a{
+  text-decoration: none;
+}
+body{
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.main{
+  width: 1000px;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;  
+  padding: 20px;
+}
+header{
+  margin: 25px;
+}
+.nav{
+  display: flex;
+
+}
+.home{
+  color: white;
+  cursor: pointer;
+  padding: 35px;
+  background-color:#9684a3;
+  border-radius: 25px; 
+  display: flex;
+  align-items: center;
+ 
+}
+.add{
+  color: white;
+  cursor: pointer;
+  padding: 25px;
+  background-color:#9684a3;
+  border-radius: 25px; 
+  display: flex;
+  align-items: center;
+}
+.consult{
+  color: white;
+  cursor: pointer;
+  padding: 25px;
+  background-color: #9684a3;   
+  border-radius: 25px; 
+  display: flex;
+  align-items: center;
+}
+.home:hover{
+  transition: all 0.5s;
+  background-color: #551bb3;  
+} 
+.consult:hover{
+  transition: all 0.5s;
+  background-color: #551bb3;  
+} 
+.add:hover{
+  transition: all 0.5s;
+  background-color: #551bb3;  
+} 
+.cadastro{  
+  width: 800px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: 3px solid rgb(233, 233, 233);
+  border-radius: 20px;
+  margin: 5px;
+  animation: fade-zoom 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;  
+}
+.produtos_listados{
+  border: 3px solid rgb(231, 224, 224);
+  border-radius: 20px;
+  display: flex;
+  padding: 15px;
+  margin: 5px;
+  width: 800px;
+	animation: fade-zoom 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;  
+}
+
+
+.especificacoes{
+  font-size: 22px;
+  display: grid;
+  width: 800px;
+  grid-template-columns: 55% 15% 15% 7% 7%;
+  font-weight: 700;  
+}
+.especificacoes2{
+  font-size: 18px;
+  display: grid;
+  align-self: center;
+  width: 800px;
+  font-weight: 700;
+  grid-template-columns: 55% 15% 15% 7% 7%;    
+}
+
+.msg_carregando_produtos{
+  display: block;
+}
+.tabela{
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+}
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 20px;
+}
+.form input{
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 20px ;
+  font-weight: 700;
+  font-size: 16px;
+
+}
+.btnSalvar{
+  font-size: 18px;
+  border-radius: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
+.btns_action{
+  border: 0px;
+  cursor: pointer;
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  background-color: transparent;
+  margin: 3px;
+}
+.fechar{
+  display: grid;
+  justify-content: end;
+}
+.save{    
+  display: grid;    
+  align-self: center;
+  justify-content: center;
+}
+.btnSalvarEdi{
+  cursor: pointer;
+}
+.popup{
+  position: fixed;
+  display: none;
+  grid-template-rows: 5% 20% 20% 20% 20%;
+  justify-content: space-evenly;
+  padding: 25px;
+  width: 300px;
+  height: 500px;
+  background-color: gray;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.popup input, label, button{
+  display: grid;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 15px;
+    
+}
+
+
+
+@media screen and (max-width: 1200px){
+  .main{
+      width: 600px;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      
+  }
+  .cadastro{
+      height: 380px;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .main{
+      width: 400px;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;        
+  }
+  .cadastro{  
+    width: 60%;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 3px solid rgb(233, 233, 233);
+    border-radius: 20px;
+    margin: 5px;
+  }
+  
+}
