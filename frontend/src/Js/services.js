@@ -1,6 +1,6 @@
 
 export async function addMaterial(material){
-    await fetch("http://localhost:3000/material/cadastrar",{
+    await fetch("http://localhost:3001/material/cadastrar",{
         method: 'POST',
         body: JSON.stringify(material),
         headers:{
@@ -13,20 +13,17 @@ export async function addMaterial(material){
     });
 }
 export async function readMaterial(){
-    const response = await fetch("http://localhost:3000/material/",{
+    const response = await fetch("http://localhost:3001/material/",{
         method: 'GET',
         headers:{
             "Content-Type":"application/json"
         }
     })
-    return response.json()
-    // .then((response)=>response.json())
-    // .then((data)=>{return data})
-    // .catch((error)=>console.log(error));
+    return response.json()   
 
 }
 export async function updateMaterial(id,material){
-    await fetch(`http://localhost:3000/material/alterar/${id}`,{
+    await fetch(`http://localhost:3001/material/alterar/${id}`,{
         method: 'PUT',
         body: JSON.stringify(material),
         headers:{
@@ -40,9 +37,8 @@ export async function updateMaterial(id,material){
 
 }
 export async function deleteMaterial(idMaterial){
-    await fetch(`http://localhost:3000/material/delete/${idMaterial}`,{
-        method: 'DELETE',
-        // body: JSON.stringify(idMaterial),
+    await fetch(`http://localhost:3001/material/delete/${idMaterial}`,{
+        method: 'DELETE',       
         headers:{
             "Content-Type":"application/json"
         }

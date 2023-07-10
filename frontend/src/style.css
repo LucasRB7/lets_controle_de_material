@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #000000;
+ 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,11 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
+.spinner{
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  position: fixed;
+  width: 800px;  
+  height: 100vh;
+}
 *{
   padding: 0;
-  margin: 0;
+  margin: 0;    
 }
+
 .titulo{
   text-align: center;
   font-size: 45px;
@@ -26,38 +34,103 @@
   align-items: center;
 }
 .menu_btn{
-  display: grid;
-  grid-template-columns: 50% 50%;
-  align-content: center;
+  display: block;
+ 
+}
+.menu_inicial_btns{
+  display: flex;
   justify-content: center;
-  height: 15vh;
-  width: 450px;
+ 
 }
 a{
   text-decoration: none;
 }
 body{
-  height: 90vh;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-image: url(/src/img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
 }
 .main{
-  width: 1000px;
-  height: 70vh;
+  width: 1500px;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: start;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;  
   padding: 20px;
+  
 }
+.div-lista{
+  width: 500px;
+  display: flex;
+  justify-content: end;  
+  z-index: 1;
+}
+.lista{
+  padding: 20px 25px ;
+  border-radius: 50px;
+  border: 2px solid; 
+  margin: 50px -20px; 
+  z-index: 1;
+}
+.cadastro{  
+  width: 500px;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-right: 10px;
+  border: 3px solid rgb(233, 233, 233);
+  border-radius: 20px;
+  background-color: #656fad;    
+  opacity: 0.9;
+}
+.msg_ok{
+  background-color: #52d684;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 25px;
+  transition: ease-in-out 500ms;
+}
+.msg_negative{
+  z-index: 0;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f28686;
+  border-radius: 25px;
+  transition: ease-in-out 500ms;
+}
+.produtos_listados{
+  border: 3px solid rgb(231, 224, 224);
+  border-radius: 20px;
+  display: flex;
+  padding: 15px; 
+  margin-left: 10px;
+  width: 800px;
+  height: 100%;
+  background-color: #C7DBD2;
+  align-self: flex-start;
+  box-sizing: border-box;
+}
+
+.cadastro h1{
+  color: aliceblue;
+}
+
 header{
   margin: 25px;
 }
 .nav{
   display: flex;
-
 }
 .home{
   color: white;
@@ -66,8 +139,7 @@ header{
   background-color:#9684a3;
   border-radius: 25px; 
   display: flex;
-  align-items: center;
- 
+  align-items: center; 
 }
 .add{
   color: white;
@@ -99,32 +171,11 @@ header{
   transition: all 0.5s;
   background-color: #551bb3;  
 } 
-.cadastro{  
-  width: 800px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  border: 3px solid rgb(233, 233, 233);
-  border-radius: 20px;
-  margin: 5px;
-  animation: fade-zoom 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;  
-}
-.produtos_listados{
-  border: 3px solid rgb(231, 224, 224);
-  border-radius: 20px;
-  display: flex;
-  padding: 15px;
-  margin: 5px;
-  width: 800px;
-	animation: fade-zoom 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;  
-}
-
 
 .especificacoes{
   font-size: 22px;
   display: grid;
-  width: 800px;
+  width: 100%;
   grid-template-columns: 55% 15% 15% 7% 7%;
   font-weight: 700;  
 }
@@ -132,7 +183,8 @@ header{
   font-size: 18px;
   display: grid;
   align-self: center;
-  width: 800px;
+  align-items: center;
+  width: 100%;
   font-weight: 700;
   grid-template-columns: 55% 15% 15% 7% 7%;    
 }
@@ -167,6 +219,7 @@ header{
   padding: 5px;
   cursor: pointer;
 }
+
 .btns_action{
   border: 0px;
   cursor: pointer;
@@ -191,15 +244,25 @@ header{
 .btnSalvarEdi{
   cursor: pointer;
 }
+.background_popup{
+  display: none;
+  position: absolute;
+  justify-items: center;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.254), rgba(5, 5, 5, 0.362));
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100vh;
+}
 .popup{
   position: fixed;
-  display: none;
+  display: grid;
   grid-template-rows: 5% 20% 20% 20% 20%;
   justify-content: space-evenly;
   padding: 25px;
-  width: 300px;
+  width: 400px;
   height: 500px;
-  background-color: gray;
+  background-color: rgb(47, 181, 132);
   border: 2px solid black;
   border-radius: 20px;
 }
@@ -215,35 +278,3 @@ header{
 
 
 
-@media screen and (max-width: 1200px){
-  .main{
-      width: 600px;
-      height: 80vh;
-      display: flex;
-      flex-direction: column;
-      
-  }
-  .cadastro{
-      height: 380px;
-  }
-}
-
-@media screen and (max-width: 600px){
-  .main{
-      width: 400px;
-      height: 80vh;
-      display: flex;
-      flex-direction: column;        
-  }
-  .cadastro{  
-    width: 60%;
-    height: 430px;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    border: 3px solid rgb(233, 233, 233);
-    border-radius: 20px;
-    margin: 5px;
-  }
-  
-}

@@ -9,13 +9,14 @@ app.use(express.json());
 app.use(cors({
   origin: '*'
 }));
-const port = 3000;
+const port = 3001;
 
 dbSetup();
 
 app.get('/material/', async (req, res) => {
   try {
-    const material = await materia_model.query();
+    const material = await materia_model.query()
+    .orderBy('id');
     res.json(material);
   } catch (err) {
     console.error(err);

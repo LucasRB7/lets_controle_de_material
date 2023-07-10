@@ -1,14 +1,19 @@
 import { Produto } from "./entity"
 import { addMaterial } from "./services"
+import { CarregaProdutos } from "./listando-produtos"
 
-export function CadastrandoProdutos(save){
+export function CadastrandoProdutos(){
     let nome = document.getElementById("nome")    
     let quantidade = document.getElementById("quantidade")
     let preco = document.getElementById("preco")
-    let notificacao = document.getElementById("msg_confirmacao")  
 
+    let btnSalvar = document.getElementById("btnSalvar")    
+    let notificacao = document.getElementById("msg_confirmacao")
+    let div_msg = document.getElementById("div_msg");
+
+    nome.focus();          
     
-    save.addEventListener("click", () =>{
+    btnSalvar.addEventListener("click", () =>{
         
         let produto = new Produto(
             nome.value,
@@ -17,24 +22,33 @@ export function CadastrandoProdutos(save){
         )
     
         if(produto.validarDados()){  
-            addMaterial(produto)    
+            addMaterial(produto)
+            div_msg.setAttribute("class","msg_ok")                                            
             notificacao.style.color = "Green"
-            notificacao.innerHTML = "Produto cadastrado com sucesso!" 
+            notificacao.style.fontWeight = "700"
+            notificacao.innerHTML = "Produto cadastrado com sucesso!"             
             setTimeout(()=>{
+                div_msg.setAttribute("class","")
                 notificacao.innerHTML = ""
                 nome.value = ""
                 quantidade.value = ""
                 preco.value = ""
-                nome.focus();                                   
-            },2000)
+                               
+                window.location.reload();                                                  
+            },1500)
            
         }else{
+            div_msg.setAttribute("class","msg_negative") 
             notificacao.style.color = "#d41e45"
+            notificacao.style.fontWeight = "700"
             notificacao.innerHTML = "*Alguns campos obrigatórios, não foram preenchidos!"
             setTimeout(()=>{
+                div_msg.setAttribute("class","")
                 notificacao.innerHTML = ""
-            },3000)
+            },2000)
         }
     })
-
 }
+
+CadastrandoProdutos();
+CarregaProdutos();
